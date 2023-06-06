@@ -1,0 +1,20 @@
+name: "Pull request remainder"
+description: "Forward Pull request remainder message on discord or telegram"
+inputs:
+  owner:
+    description: "The owner of the repository"
+    required: true
+  repo:
+    description: "The repository name"
+    required: true
+  github_api_key:
+    description: "The token to use to access the Github API"
+    required: true
+  telegram_bot_token:
+    description: "Telegram bot token"
+  telegram_chat_id:
+    description: "Telegram chat id"
+
+runs:
+  using: "node16"
+  main: "dist/index.js"
