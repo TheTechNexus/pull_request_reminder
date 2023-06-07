@@ -4,10 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx tsc",
     "start": "node dist/index.js",
-    "all": "npm run build && npm run start",
-    "prepare": "ncc build src/index.ts -o dist --source-map"
+    "build": "ncc build src/index.ts -o dist --source-map"
   },
   "keywords": [],
   "author": "",
