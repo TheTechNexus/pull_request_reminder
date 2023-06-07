@@ -8,6 +8,7 @@ const GITHUB_API_BASE_URL = "https://api.github.com";
 interface IPullRequest {
   author: string;
   url: string;
+  number: number;
 }
 
 interface PullRequestData {
@@ -40,7 +41,7 @@ async function run() {
       repo,
     });
 
-    fs.writeFileSync("pull_requests.json", JSON.stringify(pull_requests));
+    // fs.writeFileSync("pull_requests.json", JSON.stringify(pull_requests));
 
     const pull_request_obj: PullRequestData = {};
 
@@ -64,30 +65,33 @@ async function run() {
           pull_request_obj[reviewer].push({
             author,
             url: pull_request.html_url,
+            number: pull_request.number,
           });
         } else {
           pull_request_obj[reviewer] = [
             {
               author,
               url: pull_request.html_url,
+              number: pull_request.number,
             },
           ];
         }
       }
     }
-    fs.writeFileSync("pull_request_obj.json", JSON.stringify(pull_request_obj));
+    // fs.writeFileSync("pull_request_obj.json", JSON.stringify(pull_request_obj));
 
     const sendMessage = [];
 
     sendMessage.push(`⏰⏰ <b>Pull Request Daily Alert</b> ⏰⏰`);
-    sendMessage.push(`${"fa_nestjs_dms_server"}`);
+    sendMessage.push(repo);
 
     for (const reviewer in pull_request_obj) {
       sendMessage.push(`\n\n👀 Reviewer: <b>${reviewer}</b>`);
 
       for (const pull_request of pull_request_obj[reviewer]) {
+        // Add url with hyerlink
         sendMessage.push(
-          `\n🔗 ${pull_request.url}\n👨‍💻 Author: <i>${pull_request.author}</i>`
+          `\n🔗 <a href="${pull_request.url}">PR#${pull_request.number}</a> (👨‍💻 <i>${pull_request.author}</i>)`
         );
       }
     }
