@@ -1,0 +1,23 @@
+name: Release with tag
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+jobs:
+  build:
+    name: "Create a new release" 
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      - name: Create release
+        uses: ncipollo/release-action@v1
