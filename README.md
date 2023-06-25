@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v2
 
       - name: PR Reminder
-        uses: TheTechNexus/pull_request_reminder@v0.0.1
+        uses: TheTechNexus/pull_request_reminder@v0.0.2
         with:
           owner: ${{ secrets.GITHUB_OWNER }}
           repo: ${{ secrets.GITHUB_REPOSITORY }}
