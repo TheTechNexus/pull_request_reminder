@@ -5057,20 +5057,20 @@ var request = withDefaults(import_endpoint.endpoint, {
 
 /***/ }),
 
-/***/ 4812:
+/***/ 812:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 module.exports =
 {
-  parallel      : __nccwpck_require__(8210),
+  parallel      : __nccwpck_require__(210),
   serial        : __nccwpck_require__(445),
-  serialOrdered : __nccwpck_require__(3578)
+  serialOrdered : __nccwpck_require__(578)
 };
 
 
 /***/ }),
 
-/***/ 1700:
+/***/ 700:
 /***/ ((module) => {
 
 // API
@@ -5106,10 +5106,10 @@ function clean(key)
 
 /***/ }),
 
-/***/ 2794:
+/***/ 794:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var defer = __nccwpck_require__(5295);
+var defer = __nccwpck_require__(295);
 
 // API
 module.exports = async;
@@ -5147,7 +5147,7 @@ function async(callback)
 
 /***/ }),
 
-/***/ 5295:
+/***/ 295:
 /***/ ((module) => {
 
 module.exports = defer;
@@ -5180,11 +5180,11 @@ function defer(fn)
 
 /***/ }),
 
-/***/ 9023:
+/***/ 23:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var async = __nccwpck_require__(2794)
-  , abort = __nccwpck_require__(1700)
+var async = __nccwpck_require__(794)
+  , abort = __nccwpck_require__(700)
   ;
 
 // API
@@ -5262,7 +5262,7 @@ function runJob(iterator, key, item, callback)
 
 /***/ }),
 
-/***/ 2474:
+/***/ 474:
 /***/ ((module) => {
 
 // API
@@ -5306,11 +5306,11 @@ function state(list, sortMethod)
 
 /***/ }),
 
-/***/ 7942:
+/***/ 942:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var abort = __nccwpck_require__(1700)
-  , async = __nccwpck_require__(2794)
+var abort = __nccwpck_require__(700)
+  , async = __nccwpck_require__(794)
   ;
 
 // API
@@ -5342,12 +5342,12 @@ function terminator(callback)
 
 /***/ }),
 
-/***/ 8210:
+/***/ 210:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var iterate    = __nccwpck_require__(9023)
-  , initState  = __nccwpck_require__(2474)
-  , terminator = __nccwpck_require__(7942)
+var iterate    = __nccwpck_require__(23)
+  , initState  = __nccwpck_require__(474)
+  , terminator = __nccwpck_require__(942)
   ;
 
 // Public API
@@ -5395,7 +5395,7 @@ function parallel(list, iterator, callback)
 /***/ 445:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var serialOrdered = __nccwpck_require__(3578);
+var serialOrdered = __nccwpck_require__(578);
 
 // Public API
 module.exports = serial;
@@ -5416,12 +5416,12 @@ function serial(list, iterator, callback)
 
 /***/ }),
 
-/***/ 3578:
+/***/ 578:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var iterate    = __nccwpck_require__(9023)
-  , initState  = __nccwpck_require__(2474)
-  , terminator = __nccwpck_require__(7942)
+var iterate    = __nccwpck_require__(23)
+  , initState  = __nccwpck_require__(474)
+  , terminator = __nccwpck_require__(942)
   ;
 
 // Public API
@@ -5679,12 +5679,12 @@ function removeHook(state, name, method) {
 
 /***/ }),
 
-/***/ 5443:
+/***/ 443:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var util = __nccwpck_require__(3837);
 var Stream = (__nccwpck_require__(2781).Stream);
-var DelayedStream = __nccwpck_require__(8611);
+var DelayedStream = __nccwpck_require__(611);
 
 module.exports = CombinedStream;
 function CombinedStream() {
@@ -5894,7 +5894,7 @@ CombinedStream.prototype._emitError = function(err) {
 
 /***/ }),
 
-/***/ 8611:
+/***/ 611:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var Stream = (__nccwpck_require__(2781).Stream);
@@ -6036,7 +6036,7 @@ exports.Deprecation = Deprecation;
 
 /***/ }),
 
-/***/ 1133:
+/***/ 133:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var debug;
@@ -6045,7 +6045,7 @@ module.exports = function () {
   if (!debug) {
     try {
       /* eslint global-require: off */
-      debug = __nccwpck_require__(9975)("follow-redirects");
+      debug = __nccwpck_require__(975)("follow-redirects");
     }
     catch (error) { /* */ }
     if (typeof debug !== "function") {
@@ -6058,7 +6058,7 @@ module.exports = function () {
 
 /***/ }),
 
-/***/ 7707:
+/***/ 707:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 var url = __nccwpck_require__(7310);
@@ -6067,7 +6067,7 @@ var http = __nccwpck_require__(3685);
 var https = __nccwpck_require__(5687);
 var Writable = (__nccwpck_require__(2781).Writable);
 var assert = __nccwpck_require__(9491);
-var debug = __nccwpck_require__(1133);
+var debug = __nccwpck_require__(133);
 
 // Create handlers that pass events from native requests
 var events = ["abort", "aborted", "connect", "error", "socket", "timeout"];
@@ -6686,10 +6686,10 @@ module.exports.wrap = wrap;
 
 /***/ }),
 
-/***/ 4334:
+/***/ 334:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
-var CombinedStream = __nccwpck_require__(5443);
+var CombinedStream = __nccwpck_require__(443);
 var util = __nccwpck_require__(3837);
 var path = __nccwpck_require__(1017);
 var http = __nccwpck_require__(3685);
@@ -6697,9 +6697,9 @@ var https = __nccwpck_require__(5687);
 var parseUrl = (__nccwpck_require__(7310).parse);
 var fs = __nccwpck_require__(7147);
 var Stream = (__nccwpck_require__(2781).Stream);
-var mime = __nccwpck_require__(3583);
-var asynckit = __nccwpck_require__(4812);
-var populate = __nccwpck_require__(7142);
+var mime = __nccwpck_require__(583);
+var asynckit = __nccwpck_require__(812);
+var populate = __nccwpck_require__(142);
 
 // Public API
 module.exports = FormData;
@@ -7194,7 +7194,7 @@ FormData.prototype.toString = function () {
 
 /***/ }),
 
-/***/ 7142:
+/***/ 142:
 /***/ ((module) => {
 
 // populates missing values
@@ -7257,7 +7257,7 @@ exports.isPlainObject = isPlainObject;
 
 /***/ }),
 
-/***/ 7426:
+/***/ 426:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 /*!
@@ -7271,12 +7271,12 @@ exports.isPlainObject = isPlainObject;
  * Module exports.
  */
 
-module.exports = __nccwpck_require__(3765)
+module.exports = __nccwpck_require__(765)
 
 
 /***/ }),
 
-/***/ 3583:
+/***/ 583:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -7294,7 +7294,7 @@ module.exports = __nccwpck_require__(3765)
  * @private
  */
 
-var db = __nccwpck_require__(7426)
+var db = __nccwpck_require__(426)
 var extname = (__nccwpck_require__(1017).extname)
 
 /**
@@ -9316,7 +9316,7 @@ function onceStrict (fn) {
 
 /***/ }),
 
-/***/ 3329:
+/***/ 329:
 /***/ ((__unused_webpack_module, exports, __nccwpck_require__) => {
 
 "use strict";
@@ -11940,6 +11940,18 @@ function wrappy (fn, cb) {
 
 /***/ }),
 
+/***/ 9042:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.GITHUB_API_BASE_URL = void 0;
+exports.GITHUB_API_BASE_URL = "https://api.github.com";
+
+
+/***/ }),
+
 /***/ 6144:
 /***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
 
@@ -11983,8 +11995,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(2186));
 const rest_1 = __nccwpck_require__(5375);
-const axios_1 = __importDefault(__nccwpck_require__(8757));
-const GITHUB_API_BASE_URL = "https://api.github.com";
+const axios_1 = __importDefault(__nccwpck_require__(757));
+const constants_1 = __nccwpck_require__(9042);
 function run() {
     var _a, _b, _c, _d, _e;
     return __awaiter(this, void 0, void 0, function* () {
@@ -12000,7 +12012,7 @@ function run() {
             });
             const octokit = new rest_1.Octokit({
                 auth: github_api_key,
-                baseUrl: GITHUB_API_BASE_URL,
+                baseUrl: constants_1.GITHUB_API_BASE_URL,
             });
             const { data: pull_requests } = yield octokit.rest.pulls.list({
                 owner,
@@ -12023,6 +12035,10 @@ function run() {
                             author,
                             url: pull_request.html_url,
                             number: pull_request.number,
+                            duration: Math.ceil((new Date().getTime() -
+                                new Date(pull_request.updated_at).getTime()) /
+                                (1000 * 3600 * 24) // in days
+                            ),
                         });
                     }
                     else {
@@ -12031,6 +12047,10 @@ function run() {
                                 author,
                                 url: pull_request.html_url,
                                 number: pull_request.number,
+                                duration: Math.ceil((new Date().getTime() -
+                                    new Date(pull_request.updated_at).getTime()) /
+                                    (1000 * 3600 * 24) // in days
+                                ),
                             },
                         ];
                     }
@@ -12044,7 +12064,7 @@ function run() {
                 sendMessage.push(`\n\n👀 Reviewer: <b>${reviewer}</b>`);
                 for (const pull_request of pull_request_obj[reviewer]) {
                     // Add url with hyerlink
-                    sendMessage.push(`\n🔗 <a href="${pull_request.url}">PR#${pull_request.number}</a> (👨‍💻 <i>${pull_request.author}</i>)`);
+                    sendMessage.push(`\n🔗 <a href="${pull_request.url}">PR#${pull_request.number}</a> (👨‍💻 <i>${pull_request.author}</i>) (⏱️ <i>${pull_request.duration} days</i>)`);
                 }
             }
             // post to telegram
@@ -12065,7 +12085,7 @@ run();
 
 /***/ }),
 
-/***/ 9975:
+/***/ 975:
 /***/ ((module) => {
 
 module.exports = eval("require")("debug");
@@ -12201,20 +12221,20 @@ module.exports = require("zlib");
 
 /***/ }),
 
-/***/ 8757:
+/***/ 757:
 /***/ ((module, __unused_webpack_exports, __nccwpck_require__) => {
 
 "use strict";
 // Axios v1.4.0 Copyright (c) 2023 Matt Zabriskie and contributors
 
 
-const FormData$1 = __nccwpck_require__(4334);
+const FormData$1 = __nccwpck_require__(334);
 const url = __nccwpck_require__(7310);
-const proxyFromEnv = __nccwpck_require__(3329);
+const proxyFromEnv = __nccwpck_require__(329);
 const http = __nccwpck_require__(3685);
 const https = __nccwpck_require__(5687);
 const util = __nccwpck_require__(3837);
-const followRedirects = __nccwpck_require__(7707);
+const followRedirects = __nccwpck_require__(707);
 const zlib = __nccwpck_require__(9796);
 const stream = __nccwpck_require__(2781);
 const EventEmitter = __nccwpck_require__(2361);
@@ -16446,7 +16466,7 @@ module.exports = axios;
 
 /***/ }),
 
-/***/ 3765:
+/***/ 765:
 /***/ ((module) => {
 
 "use strict";

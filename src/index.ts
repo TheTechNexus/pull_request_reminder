@@ -2,18 +2,8 @@ import * as core from "@actions/core";
 import { Octokit } from "@octokit/rest";
 import axios from "axios";
 import * as fs from "fs";
-
-const GITHUB_API_BASE_URL = "https://api.github.com";
-
-interface IPullRequest {
-  author: string;
-  url: string;
-  number: number;
-}
-
-interface PullRequestData {
-  [key: string]: IPullRequest[];
-}
+import { GITHUB_API_BASE_URL } from "./constants";
+import { PullRequestData } from "./types";
 
 async function run() {
   try {
@@ -57,8 +47,9 @@ async function run() {
       const author = pull_request?.user?.login ?? "Ghost";
 
       let reviewers =
-        pull_request?.requested_reviewers?.map((reviewer) => reviewer?.login) ??
-        [];
+        pull_request?.requested_reviewers?.map(
+          (reviewer: any) => reviewer?.login
+        ) ?? [];
 
       for (const reviewer of reviewers) {
         if (pull_request_obj[reviewer]) {
@@ -66,6 +57,11 @@ async function run() {
             author,
             url: pull_request.html_url,
             number: pull_request.number,
+            duration: Math.ceil(
+              (new Date().getTime() -
+                new Date(pull_request.updated_at).getTime()) /
+                (1000 * 3600 * 24) // in days
+            ),
           });
         } else {
           pull_request_obj[reviewer] = [
@@ -73,11 +69,17 @@ async function run() {
               author,
               url: pull_request.html_url,
               number: pull_request.number,
+              duration: Math.ceil(
+                (new Date().getTime() -
+                  new Date(pull_request.updated_at).getTime()) /
+                  (1000 * 3600 * 24) // in days
+              ),
             },
           ];
         }
       }
     }
+
     // fs.writeFileSync("pull_request_obj.json", JSON.stringify(pull_request_obj));
 
     const sendMessage = [];
@@ -91,7 +93,7 @@ async function run() {
       for (const pull_request of pull_request_obj[reviewer]) {
         // Add url with hyerlink
         sendMessage.push(
-          `\n🔗 <a href="${pull_request.url}">PR#${pull_request.number}</a> (👨‍💻 <i>${pull_request.author}</i>)`
+          `\n🔗 <a href="${pull_request.url}">PR#${pull_request.number}</a> (👨‍💻 <i>${pull_request.author}</i>) (⏱️ <i>${pull_request.duration} days</i>)`
         );
       }
     }

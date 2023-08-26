@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node dist/index.js",
-    "build": "ncc build src/index.ts -o dist --source-map"
+    "build": "ncc build src/index.ts -o dist --source-map --watch"
   },
   "keywords": [],
   "author": "",
