@@ -14,7 +14,8 @@ name: PR Reminder
 
 on:
   schedule:
-    - cron: "0 0 * * *"
+    - cron: "0 0 * * *" # 5:30 AM IST
+    - cron: '0 4 * * *' # 9:30 AM IST
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
@@ -30,8 +31,13 @@ jobs:
       - name: PR Reminder
         uses: TheTechNexus/pull_request_reminder@v0.0.2
         with:
-          owner: ${{ secrets.GITHUB_OWNER }}
-          repo: ${{ secrets.GITHUB_REPOSITORY }}
+          owner: ${{ secrets.GITHUB_OWNER }} # The owner(organization or user name) of the repo (e.g., TheTechNexus)
+          repo: ${{ secrets.GITHUB_REPOSITORY }} # Current repository name
           github_api_key: ${{ secrets.GITHUB_API_KEY }}
           telegram_bot_token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           telegram_chat_id: ${{ secrets.TELEGRAM_CHAT_ID }}
+
+ # NOTE:
+    The `telegram_bot_token` can be obtained from [BotFather](https://t.me/BotFather)
+    Owner name and repository name can be obtained from github context variables in the workflow file. (e.g ${{ github.repository_owner }} and ${{ github.event.repository.name }} )
+```
