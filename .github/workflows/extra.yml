@@ -1,0 +1,32 @@
+name: Test another workflow on push every branches
+
+on:
+  push:
+    branches:
+      - "*"
+
+jobs:
+  build:
+    name: "Test another workflow on push every branches" 
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          persist-credentials: false
+
+      # Runs a single command using the runners shell
+      - name: Run a one-line script
+        run: echo Hello, world!
+
+      - name: Notify
+        uses: TheTechNexus/telegram_notifier@v1
+        with:
+          telegram_bot_token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          telegram_chat_id: ${{ secrets.TELEGRAM_CHAT_ID }}
+          message: |
+            "Hello world"
+            "This is a multiline message"
+            "This is the last line"
+          imageUrl: "https://cdn.invicti.com/statics/img/drive/h2jfrvzrbyh1yff2n3wfu2hkqqps6x_uvqo.png"
