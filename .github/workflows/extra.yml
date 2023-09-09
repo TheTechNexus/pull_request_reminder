@@ -21,7 +21,7 @@ jobs:
         run: echo Hello, world!
 
       - name: Notify
-        uses: TheTechNexus/telegram_notifier@v1
+        uses: TheTechNexus/telegram_notifier@v1.0.0
         with:
           telegram_bot_token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           telegram_chat_id: ${{ secrets.TELEGRAM_CHAT_ID }}
